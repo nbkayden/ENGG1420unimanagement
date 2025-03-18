@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projecttest.SubjectController" style="-fx-background-color: #f4f4f4;">
+    <Label text="Subject Management" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+    <TableView fx:id="subjectTable" style="-fx-pref-width: 600px;">
+        <columns>
+            <TableColumn text="Subject Code" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="subjectCode" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Subject Name" prefWidth="400">
+                <cellValueFactory>
+                    <PropertyValueFactory property="subjectName" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <Button text="Back to Dashboard" onAction="#handleBackToDashboard" style="-fx-font-size: 16px; -fx-pref-width: 200px; -fx-pref-height: 40px; -fx-background-color: #2196F3; -fx-text-fill: white;" />
+</VBox>
