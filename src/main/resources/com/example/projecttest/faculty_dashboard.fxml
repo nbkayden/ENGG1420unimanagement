@@ -27,7 +27,7 @@
    <right>
       <AnchorPane prefHeight="238.0" prefWidth="269.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="89.0" layoutY="111.0" text="Welcom Faculty" />
+            <Label layoutX="89.0" layoutY="111.0" text="Welcome Faculty" />
          </children>
       </AnchorPane>
    </right>
