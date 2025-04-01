@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="20" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projecttest.SubjectControllerStudent">
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Enrolled Courses" />
+    <TableView fx:id="subjectTable" style="-fx-pref-width: 600px;">
+        <columns>
+            <TableColumn prefWidth="200" text="Subject Code">
+                <cellValueFactory>
+                    <PropertyValueFactory property="subjectCode" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="400" text="Subject Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="subjectName" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <Button onAction="#handleBackToDashboard" style="-fx-font-size: 16px; -fx-pref-width: 200px; -fx-pref-height: 40px; -fx-background-color: #2196F3; -fx-text-fill: white;" text="Back to Dashboard" />
+</VBox>

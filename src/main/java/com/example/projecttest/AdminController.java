@@ -17,7 +17,7 @@ public class AdminController {
     private void handleManageSubjects() {
         try {
             // Load the subject view
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projecttest/subject_view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projecttest/subject_view_admin.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) errorLabel.getScene().getWindow();
             stage.setScene(new Scene(root));

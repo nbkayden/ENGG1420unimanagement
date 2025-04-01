@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class StudentController {
     @FXML
     private Label errorLabel; // Ensure this matches the fx:id in FXML
@@ -18,7 +20,16 @@ public class StudentController {
 
     @FXML
     private void handleViewCourses() {
-        System.out.println("View Enrolled Courses clicked");
+        try {
+            // Load the subject view
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projecttest/subject_view_student.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) errorLabel.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
