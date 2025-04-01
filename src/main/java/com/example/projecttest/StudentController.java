@@ -11,7 +11,13 @@ import java.io.IOException;
 
 public class StudentController {
     @FXML
-    private Label errorLabel; // Ensure this matches the fx:id in FXML
+    private Label errorLabel;
+    private String currentStudentId;  // Add this field to store student ID
+
+    // Add this method to set the student ID
+    public void setCurrentStudentId(String studentId) {
+        this.currentStudentId = studentId;
+    }
 
     @FXML
     private void handleViewProfile() {
@@ -21,14 +27,18 @@ public class StudentController {
     @FXML
     private void handleViewCourses() {
         try {
-            // Load the subject view
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projecttest/courses_view_student.fxml"));
             Parent root = loader.load();
+
+            CoursesControllerStudent controller = loader.getController();
+            controller.setStudentId(currentStudentId);
+
             Stage stage = (Stage) errorLabel.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+            errorLabel.setText("Error loading courses view");
         }
     }
 
