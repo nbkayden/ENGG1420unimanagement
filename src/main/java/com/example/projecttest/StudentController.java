@@ -22,7 +22,7 @@ public class StudentController {
     private void handleViewCourses() {
         try {
             // Load the subject view
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projecttest/subject_view_student.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projecttest/courses_view_student.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) errorLabel.getScene().getWindow();
             stage.setScene(new Scene(root));

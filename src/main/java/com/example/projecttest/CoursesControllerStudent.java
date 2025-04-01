@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubjectControllerStudent {
+public class CoursesControllerStudent {
     @FXML
     private TableView<Subject> subjectTable; // TableView to display subjects
 
