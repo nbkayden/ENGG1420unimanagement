@@ -10,7 +10,7 @@
 
             <Button onAction="#handleViewProfile" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-min-width: 150px;" text="View Profile" />
             <Button onAction="#handleViewCourses" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-min-width: 150px;" text="Enrolled Courses" />
-            <Button onAction="#handleViewGrades" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-min-width: 150px;" text="View Grades" />
+            <!--Button onAction="#handleViewGrades" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-min-width: 150px;" text="View Grades" /-->
             <Button onAction="#handleRegisteredEvents" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-min-width: 150px;" text="Events Registered" />
 
             <Region VBox.vgrow="ALWAYS" />

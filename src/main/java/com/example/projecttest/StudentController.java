@@ -61,10 +61,10 @@ public class StudentController {
         }
     }
 
-    @FXML
+    /*@FXML
     private void handleViewGrades() {
         System.out.println("View Grades clicked");
-    }
+    }*/
 
     @FXML
     private void handleRegisteredEvents() {
