@@ -16,18 +16,22 @@ public class StudentController {
     private String currentStudentId;
     private String currentStudentName;// Add this field to store student ID
     private static String preservedStudentName;
+    private static String preservedStudentId;
 
     @FXML
     public void initialize() {
         if (preservedStudentName != null) {
             this.currentStudentName = preservedStudentName;
+        }// Rest of initialization
+        if (preservedStudentId != null) {
+            this.currentStudentId = preservedStudentId;
         }
-        // Rest of initialization
     }
 
     // Add this method to set the student ID
     public void setCurrentStudentId(String studentId) {
         this.currentStudentId = studentId;
+        preservedStudentId = studentId;
     }
     public void setCurrentStudentName(String studentName){
         this.currentStudentName = studentName;
@@ -95,8 +99,6 @@ public class StudentController {
             Parent root = loader.load();
             Stage stage = (Stage) errorLabel.getScene().getWindow(); // Use errorLabel to get the scene
             stage.setScene(new Scene(root));
-            //stage.setWidth(800); // Set width
-            //stage.setHeight(600); // Set height
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
