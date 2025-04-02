@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -12,11 +13,15 @@ import java.io.IOException;
 public class StudentController {
     @FXML
     private Label errorLabel;
-    private String currentStudentId;  // Add this field to store student ID
+    private String currentStudentId;
+    private String currentStudentName;// Add this field to store student ID
 
     // Add this method to set the student ID
     public void setCurrentStudentId(String studentId) {
         this.currentStudentId = studentId;
+    }
+    public void setCurrentStudentName(String studentName){
+        this.currentStudentName = studentName;
     }
 
     @FXML
@@ -48,8 +53,28 @@ public class StudentController {
     }
 
     @FXML
-    private void handleRegisterEvents() {
-        System.out.println("Register for Events clicked");
+    private void handleRegisteredEvents() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projecttest/event_view_student.fxml"));
+            Parent root = loader.load();
+
+            RegisteredEventControllerStudent controller = loader.getController();
+            controller.setStudentName(currentStudentName);
+
+            Stage stage = (Stage) errorLabel.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            showAlert("Error", "Failed to load events view: " + e.getMessage());
+        }
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     @FXML

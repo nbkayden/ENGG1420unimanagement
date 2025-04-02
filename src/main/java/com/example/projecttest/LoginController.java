@@ -56,6 +56,7 @@ public class LoginController {
                     // Get the controller and set the student ID
                     StudentController studentController = loader.getController();
                     studentController.setCurrentStudentId(student.getId());
+                    studentController.setCurrentStudentName(student.getName()); // Add this method to StudentController
 
                     Stage stage = (Stage) usernameField.getScene().getWindow();
                     stage.setScene(new Scene(root));
