@@ -15,6 +15,15 @@ public class StudentController {
     private Label errorLabel;
     private String currentStudentId;
     private String currentStudentName;// Add this field to store student ID
+    private static String preservedStudentName;
+
+    @FXML
+    public void initialize() {
+        if (preservedStudentName != null) {
+            this.currentStudentName = preservedStudentName;
+        }
+        // Rest of initialization
+    }
 
     // Add this method to set the student ID
     public void setCurrentStudentId(String studentId) {
@@ -22,6 +31,7 @@ public class StudentController {
     }
     public void setCurrentStudentName(String studentName){
         this.currentStudentName = studentName;
+        preservedStudentName = studentName; // Back up to static variable
     }
 
     @FXML
