@@ -19,52 +19,23 @@ public class ExcelReader {
         try (FileInputStream file = new FileInputStream(filePath)) {
             Workbook workbook = new XSSFWorkbook(file);
             Sheet sheet = workbook.getSheetAt(2);
-
             for (Row row : sheet) {
                 if (row.getRowNum() == 0) continue; // Skip header row
 
-                Student student = createStudentFromRow(row);
-                if (student != null) {
-                    students.add(student);
+                // Check if cells exist before accessing them
+                String id = getCellValue(row, 0);
+                String name = getCellValue(row, 1);
+                String email = getCellValue(row, 4);
+                String password = getCellValue(row, 11);
+
+                if (id != null && name != null && email != null && password != null) {
+                    students.add(new Student(id, name, email, password));
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return students;
-    }
-
-    private Student createStudentFromRow(Row row) {
-        try {
-            return new Student(
-                    getCellStringValue(row, 0), // Student ID
-                    getCellStringValue(row, 1), // Name
-                    getCellStringValue(row, 2), // Address
-                    getCellStringValue(row, 3), // Telephone
-                    getCellStringValue(row, 4), // Email
-                    getCellStringValue(row, 5), // Academic Level
-                    getCellStringValue(row, 6), // Current Semester
-                    getCellStringValue(row, 11) // Password
-            );
-        } catch (Exception e) {
-            System.err.println("Error creating student from row: " + e.getMessage());
-            return null;
-        }
-    }
-
-    private String getCellStringValue(Row row, int cellIndex) {
-        Cell cell = row.getCell(cellIndex);
-        if (cell == null) {
-            return "";
-        }
-        switch (cell.getCellType()) {
-            case STRING:
-                return cell.getStringCellValue();
-            case NUMERIC:
-                return String.valueOf((int) cell.getNumericCellValue());
-            default:
-                return "";
-        }
     }
 
     public List<Faculty> loadFaculties() {

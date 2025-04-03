@@ -17,7 +17,7 @@ public class AdminController {
     private void handleManageSubjects() {
         try {
             // Load the subject view
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projecttest/subject_view_admin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projecttest/subject_view.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) errorLabel.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -34,15 +34,7 @@ public class AdminController {
 
     @FXML
     private void handleManageStudents() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projecttest/admin_manage_student_view.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) errorLabel.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        System.out.println("Manage Students clicked");
     }
 
     @FXML
