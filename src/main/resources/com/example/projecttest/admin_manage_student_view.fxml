@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.util.Callback?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<VBox alignment="TOP_CENTER" spacing="20" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.projecttest.AdminManageStudentController"
+      style="-fx-background-color: #f4f4f4; -fx-padding: 30;">
+
+    <Label text="Student Management" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Add Student" onAction="#handleAddStudent"
+                style="-fx-font-size: 16px; -fx-pref-width: 150px; -fx-pref-height: 40px;
+                      -fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        <Button text="Delete Selected" onAction="#handleDeleteStudent"
+                style="-fx-font-size: 16px; -fx-pref-width: 150px; -fx-pref-height: 40px;
+                      -fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+
+    <TableView fx:id="studentsTable" style="-fx-pref-width: 900px;">
+        <columns>
+            <TableColumn text="Student ID" prefWidth="120">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Name" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="name" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Address" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="address" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Phone" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="phone" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Email" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="email" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Academic Level" prefWidth="120">
+                <cellValueFactory>
+                    <PropertyValueFactory property="academicLevel" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Semester" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="currentSemester" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Edit" prefWidth="80">
+                <cellValueFactory>
+                    <PropertyValueFactory property="dummy" />
+                </cellValueFactory>
+                <cellFactory>
+                    <Callback>
+                        <Button text="Edit" onAction="#handleEditStudent"
+                                style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+                    </Callback>
+                </cellFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <Button text="Back to Dashboard" onAction="#handleBackToDashboard"
+            style="-fx-font-size: 16px; -fx-pref-width: 200px; -fx-pref-height: 40px;
+                  -fx-background-color: #2196F3; -fx-text-fill: white;"/>
+
+    <Label fx:id="messageLabel" style="-fx-text-fill: red; -fx-font-size: 14px;"/>
+</VBox>

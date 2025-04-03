@@ -34,7 +34,15 @@ public class AdminController {
 
     @FXML
     private void handleManageStudents() {
-        System.out.println("Manage Students clicked");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projecttest/admin_manage_student_view.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) errorLabel.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
