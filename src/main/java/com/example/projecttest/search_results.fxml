@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projecttest.SubjectController">
+   <children>
+      <Label id="SearchedName" layoutX="140.0" layoutY="124.0" prefHeight="24.0" prefWidth="96.0" text="Subject Name:" />
+      <Label id="attachedCode" layoutX="149.0" layoutY="167.0" prefHeight="24.0" prefWidth="75.0" text="Subject Code:" />
+      <Button id="SearchDelete" layoutX="313.0" layoutY="151.0" mnemonicParsing="false" onAction="#deleteSearched" prefHeight="24.0" prefWidth="126.0" text="Delete" />
+   </children>
+</AnchorPane>

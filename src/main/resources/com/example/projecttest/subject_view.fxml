@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projecttest.SubjectController">
+   <children>
+      <Label layoutX="27.0" layoutY="14.0" style="-fx-font-size: 25px; -fx-font-weight: bold;" text="Subject Management" />
+      <VBox layoutX="52.0" layoutY="60.0" prefHeight="251.0" prefWidth="238.0">
+         <children>
+            <Button id="SubjectAdd" mnemonicParsing="false" onAction="#handleAddSubject" prefHeight="38.0" prefWidth="240.0" style="-fx-font-size: 16px; -fx-pref-width: 240px; -fx-pref-height: 40px; -fx-background-color: #0096FF; -fx-text-fill: white; -fx-border-color: white;" text="Add Subject" />
+            <Button id="SubjectEdit" mnemonicParsing="false" onAction="#handleEditSubject" style="-fx-background-color: #0096FF; -fx-font-size: 16px; -fx-pref-height: 40px; -fx-pref-width: 240px; -fx-text-fill: white; -fx-border-color: white;" text="Edit Subject" />
+            <Button id="SubjectDelete" mnemonicParsing="false" onAction="#handleDeletingSubject" style="-fx-background-color: #0096FF; -fx-font-size: 16px; -fx-pref-width: 240px; -fx-pref-height: 40px; -fx-text-fill: white; -fx-border-color: white;" text="Delete Subject" />
+            <Button id="SubjectView" mnemonicParsing="false" onAction="#handleViewSubjects" style="-fx-font-size: 16px; -fx-background-color: #0096FF; -fx-pref-width: 240px; -fx-pref-height: 40px; -fx-text-fill: white; -fx-border-color: white;" text="View Subject" />
+            <Button layoutX="10.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleBackToDashboard" style="-fx-font-size: 16px; -fx-background-color: #0096FF; -fx-pref-width: 240px; -fx-pref-height: 40px; -fx-text-fill: white; -fx-border-color: white;" text="Back to Dashboard" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="138.0" text="Search by Name:" />
+                  <TextField id="SearchBar" prefHeight="26.0" prefWidth="193.0" />
+               </children>
+            </HBox>
+            <Button id="searchButton" disable="true" mnemonicParsing="false" onAction="#SubjectSearch" prefHeight="26.0" prefWidth="242.0" text="Search" />
+         </children>
+      </VBox>
+   </children>
+</Pane>

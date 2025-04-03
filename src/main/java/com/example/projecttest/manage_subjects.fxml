@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projecttest.SubjectController">
+   <children>
+      <TextField id="NameInput" layoutX="211.0" layoutY="97.0" />
+      <Label id="NameLabel" layoutX="127.0" layoutY="97.0" text="Subject Name:" />
+      <Label id="CodeLabel" layoutX="127.0" layoutY="147.0" text="Subject Code: " />
+      <TextField id="CodeInput" layoutX="211.0" layoutY="147.0" />
+      <Button id="AddingButton" fx:id="AddButton" layoutX="266.0" layoutY="187.0" mnemonicParsing="false" onAction="#AddingSubjects" text="Add" visible="false" />
+      <Button id="DeletingButton" layoutX="260.0" layoutY="219.0" mnemonicParsing="false" onAction="#DeleteSubject" text="Delete" visible="false" />
+      <Label id="FinishingLabel" layoutX="251.0" layoutY="324.0" prefHeight="18.0" prefWidth="95.0" text="Action Sucessfull" visible="false" />
+   </children>
+</AnchorPane>
