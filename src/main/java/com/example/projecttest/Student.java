@@ -1,20 +1,41 @@
 package com.example.projecttest;
 
-public class Student extends User {
-    public Student(String id, String name, String email, String password) {
-        super(id, name, email, password);
+public class Student {
+    private String id;
+    private String name;
+    private String address;
+    private String phone;
+    private String email;
+    private String academicLevel;
+    private String currentSemester;
+    private String password;
+
+    // Constructor
+    public Student(String id, String name, String address, String phone,
+                   String email, String academicLevel, String currentSemester,
+                   String password) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.academicLevel = academicLevel;
+        this.currentSemester = currentSemester;
+        this.password = password;
     }
 
-    // Add getter methods for email and password
-    public String getEmail() {
-        return super.getEmail(); // Assuming the email field is in the parent User class
-    }
+    // Getters
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public String getAddress() { return address; }
+    public String getPhone() { return phone; }
+    public String getEmail() { return email; }
+    public String getAcademicLevel() { return academicLevel; }
+    public String getCurrentSemester() { return currentSemester; }
+    public String getPassword() { return password; }
 
-    public String getId(){
-        return super.getId();
-    }
-
-    public String getPassword() {
-        return super.getPassword(); // Assuming the password field is in the parent User class
-    }
+    // Setters for editable fields
+    public void setAddress(String address) { this.address = address; }
+    public void setPhone(String phone) { this.phone = phone; }
+    public void setPassword(String password) { this.password = password; }
 }

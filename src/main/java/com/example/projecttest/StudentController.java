@@ -7,7 +7,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class StudentController {
@@ -40,7 +45,49 @@ public class StudentController {
 
     @FXML
     private void handleViewProfile() {
-        System.out.println("View Profile clicked");
+        try {
+            // Load student data from Excel
+            Student student = loadStudentData(currentStudentId);
+
+            // Load profile view
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projecttest/profile_view_student.fxml"));
+            Parent root = loader.load();
+
+            // Pass student data to controller
+            ProfileViewControllerStudent controller = loader.getController();
+            controller.setStudentData(student);
+
+            Stage stage = (Stage) errorLabel.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Student loadStudentData(String studentId) throws IOException {
+        try (FileInputStream file = new FileInputStream("UMS_Data.xlsx")) {
+            Workbook workbook = new XSSFWorkbook(file);
+            Sheet sheet = workbook.getSheetAt(2);
+
+            for (Row row : sheet) {
+                if (row.getRowNum() == 0) continue; // Skip header
+
+                if (row.getCell(0).getStringCellValue().equals(studentId)) {
+                    return new Student(
+                            row.getCell(0).getStringCellValue(), // ID
+                            row.getCell(1).getStringCellValue(), // Name
+                            row.getCell(2).getStringCellValue(), // Address
+                            row.getCell(3).getStringCellValue(), // Phone
+                            row.getCell(4).getStringCellValue(), // Email
+                            row.getCell(5).getStringCellValue(), // Academic Level
+                            row.getCell(6).getStringCellValue(), // Current Semester
+                            row.getCell(11).getStringCellValue() // Password
+                    );
+                }
+            }
+        }
+        return null;
     }
 
     @FXML
